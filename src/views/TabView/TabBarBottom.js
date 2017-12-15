@@ -119,6 +119,17 @@ class TabBarBottom extends React.PureComponent<Props> {
       );
     }
 
+    if (typeof label === 'object') {
+      return (
+        <Animated.Text
+          style={[styles.label, { color, marginLeft, marginTop }, labelStyle]}
+          allowFontScaling={allowFontScaling}
+        >
+          {label}
+        </Animated.Text>
+      );
+    }
+
     if (typeof label === 'function') {
       return label({ ...scene, tintColor });
     }

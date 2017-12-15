@@ -89,6 +89,16 @@ export default class TabBarTop extends React.PureComponent<Props> {
         </Animated.Text>
       );
     }
+    if (typeof label === 'object') {
+      return (
+        <Animated.Text
+      style={[styles.label, { color }, labelStyle]}
+      allowFontScaling={allowFontScaling}
+        >
+        {label}
+        </Animated.Text>
+    );
+    }
     if (typeof label === 'function') {
       return label({ ...scene, tintColor });
     }
